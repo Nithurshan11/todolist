@@ -1,0 +1,277 @@
+/* -------------------------
+   GLOBAL STYLES
+------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  min-height: 100vh;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* -------------------------
+   DARK MODE
+------------------------- */
+body.dark {
+  background: #121212;
+  color: #ffffff;
+}
+
+/* -------------------------
+   CENTER CONTENT (Login/Register)
+------------------------- */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* -------------------------
+   GLASSMORPH CARD
+------------------------- */
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* -------------------------
+   FORM ELEMENTS
+------------------------- */
+input, select, button {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 12px 0;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  box-shadow: 0 0 10px rgba(78, 115, 223, 0.5);
+}
+
+button {
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* -------------------------
+   TASK LIST
+------------------------- */
+.task {
+  padding: 12px 15px;
+  margin: 8px 0;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.task:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.overdue {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.today {
+  background: rgba(0, 123, 255, 0.2);
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* -------------------------
+   TOP BAR / DASHBOARD HEADER
+------------------------- */
+.topbar {
+  text-align: center;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.topbar h2 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.topbar p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* -------------------------
+   TASK ACTION BUTTONS
+------------------------- */
+.task a {
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.task a:hover {
+  background: rgba(78, 115, 223, 0.3);
+}
+
+/* -------------------------
+   CHART
+------------------------- */
+canvas {
+  margin-top: 20px;
+  max-width: 100%;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+}
+
+/* -------------------------
+   ERROR MESSAGES
+------------------------- */
+.error {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff0000;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* -------------------------
+   LINKS
+------------------------- */
+a {
+  color: #4e73df;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------
+   RESPONSIVE
+------------------------- */
+@media screen and (max-width: 480px) {
+  .card {
+    width: 90%;
+    padding: 30px 20px;
+  }
+
+  .topbar h2 {
+    font-size: 22px;
+  }
+
+  .topbar p {
+    font-size: 14px;
+  }
+}
+
+/* DASHBOARD GRID */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* TASK BADGES */
+.badge {
+  display:inline-block;
+  padding:3px 8px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:bold;
+  margin-left:8px;
+  color:white;
+}
+
+.badge.Low { background:#6c757d; }
+.badge.Medium { background:#ffc107; color:black; }
+.badge.High { background:#fd7e14; }
+
+/* CARD TITLES */
+.card h3 {
+  margin-bottom:15px;
+  color:#ffffff;
+}
+
+/* TASK ITEM */
+.task {
+  padding:12px 15px;
+  margin:8px 0;
+  border-radius:12px;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.15);
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task:hover { transform: translateX(5px); }
+
+/* OVERDUE / TODAY COLORS */
+.overdue { background: rgba(255,0,0,0.2); color:#ff0000; font-weight:bold; }
+.today { background: rgba(0,123,255,0.2); color:#007bff; font-weight:bold; }
+
+/* ACTION BUTTONS */
+.task a {
+  margin-left:10px;
+  text-decoration:none;
+  font-size:18px;
+  padding:5px 8px;
+  border-radius:8px;
+  transition:0.3s;
+}
+.task a:hover { background: rgba(78,115,223,0.3); }
+
+/* DARK MODE */
+body.dark .card { background: rgba(255,255,255,0.05); }
+
+/* RESPONSIVE */
+@media screen and (max-width:480px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .card { width:95%; margin:auto; }
+}
